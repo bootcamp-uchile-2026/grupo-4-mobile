@@ -29,7 +29,7 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("SaborOnLine")}
+                title = { Text("La Sobremesa") }
             )
         },
         bottomBar = {
@@ -43,32 +43,90 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
             startDestination = BottomNavItem.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(BottomNavItem.Home.route) { HomeScreen() }
-            composable(BottomNavItem.Products.route) { ProductsScreen() }
-            composable(BottomNavItem.History.route) { HistoryScreen() }
-            composable(BottomNavItem.Cart.route) { CartScreen() }
-            composable(BottomNavItem.Account.route) { AccountScreen() }
+
+            composable(BottomNavItem.Home.route) {
+                HomeScreen(
+                    onNavigateTo = { route -> navController.navigate(route) },
+                    onLogout = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    })
+            }
+            composable(BottomNavItem.Products.route) {
+                ProductsScreen(
+                    onNavigateTo = { route -> navController.navigate(route) },
+                    onLogout = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    })
+            }
+            composable(BottomNavItem.History.route) {
+                HistoryScreen(
+                    onNavigateTo = { route -> navController.navigate(route) },
+                    onLogout = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    })
+            }
+            composable(BottomNavItem.Cart.route) {
+                CartScreen(
+                    onNavigateTo = { route -> navController.navigate(route) },
+                    onLogout = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    })
+            }
+            composable(BottomNavItem.Account.route) {
+                AccountScreen(
+                    paddingValues = innerPadding,
+                    sections = listOf(
+                        AccountSection(
+                            sectionTitle = "MI PERFIL",
+                            items = listOf(
+                                AccountMenuItem(
+                                    title = "Mis datos",
+                                    icon = Icons.Default.Person,
+                                    onClick = {}
+                                ),
+                                AccountMenuItem(
+                                    title = "Mis direcciones",
+                                    icon = Icons.Default.LocationOn,
+                                    onClick = {}
+                                ),
+                                AccountMenuItem(
+                                    title = "Mis favoritos",
+                                    icon = Icons.Default.Favorite,
+                                    onClick = {}
+                                )
+                            )
+                        ),
+                        AccountSection(
+                            sectionTitle = "MIS COMPRAS Y CUENTAS",
+                            items = listOf(
+                                AccountMenuItem("Historial de pedidos",
+                                    icon = Icons.Default.ShoppingCart,
+                                    onClick = {}),
+                                AccountMenuItem("Mis tarjetas",
+                                    icon = Icons.Default.CreditCard,
+                                onClick = {}
+                                )
+                            )
+                        ),
+                        AccountSection(
+                            sectionTitle = "SUSCRIPCION",
+                            items = listOf(
+                                AccountMenuItem(
+                                    title = "Quiero suscribirme",
+                                    icon = Icons.Default.Star,
+                                    onClick = {}
+                                ),
+                            )
+                        )
+                    ),
+                    onLogout = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    },
+                    OnNavigateTo = { route ->
+                        navController.navigate(route)
+                    }
+                )
+            }
         }
     }
-}
-
-@Composable
-fun HomeScreen() {
-    //pantalla de inicio
-}
-@Composable
-fun ProductsScreen() {
-    //pantalla de inicio
-}
-@Composable
-fun HistoryScreen() {
-    //pantalla de inicio
-}
-@Composable
-fun CartScreen() {
-    //pantalla de inicio
-}
-@Composable
-fun AccountScreen() {
-    //pantalla de inicio
 }
