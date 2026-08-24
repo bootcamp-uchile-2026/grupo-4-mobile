@@ -57,7 +57,7 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                     IconButton(onClick = { /* Favoritos */ }) {
                         Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = "Favoritos")
                     }
-                    IconButton(onClick = { /* Perfil */ }) {
+                    IconButton(onClick = { navController.navigate(BottomNavItem.Account.route) }) {
                         Icon(imageVector = Icons.Default.Person, contentDescription = "Perfil")
                     }
                     IconButton(onClick = { navController.navigate("cart") }) {
@@ -81,26 +81,28 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
         ) {
             composable(BottomNavItem.Home.route) {
                 HomeScreen(
-                    onNavigateTo = { route -> navController.navigate(route) },
-                    onLogout = { navController.navigate(BottomNavItem.Home.route) }
+                   onNavigateTo = { route -> navController.navigate(route) }
                 )
             }
             composable(BottomNavItem.Products.route) {
-                ProductsScreen(
-                    onNavigateTo = { route -> navController.navigate(route) },
-                    onLogout = { navController.navigate(BottomNavItem.Home.route) }
+                CatalogScreen(
+                    // onNavigateTo = { route -> navController.navigate(route) },
+                   //onLogout = { navController.navigate(BottomNavItem.Home.route) }
                 )
             }
-            composable(BottomNavItem.History.route) {
+           /* composable(BottomNavItem.History.route) {
                 HistoryScreen(
                     onNavigateTo = { route -> navController.navigate(route) },
                     onLogout = { navController.navigate(BottomNavItem.Home.route) }
                 )
-            }
+            }*/
             composable(BottomNavItem.Cart.route) {
                 CartScreen(
-                    onNavigateTo = { route -> navController.navigate(route) },
-                    onLogout = { navController.navigate(BottomNavItem.Home.route) }
+                    onCheckoutClick = {
+                        navController.navigate(BottomNavItem.Home.route)
+                    }
+                 //   onNavigateTo = { route -> navController.navigate(route) },
+                 //   onLogout = { navController.navigate(BottomNavItem.Home.route) }
                 )
             }
             composable(BottomNavItem.Account.route) {

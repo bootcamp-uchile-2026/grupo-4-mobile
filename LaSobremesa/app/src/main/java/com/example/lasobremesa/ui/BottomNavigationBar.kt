@@ -25,7 +25,7 @@ fun BottomNavigationBar(
     val items = listOf(
         BottomNavItem.Home,
         BottomNavItem.Products,
-        BottomNavItem.History,
+        //BottomNavItem.History,
         BottomNavItem.Cart,
         BottomNavItem.Account
     )
@@ -58,7 +58,7 @@ sealed class BottomNavItem(
 ) {
     object Home : BottomNavItem("home", "Inicio", Icons.Default.Home)
     object Products : BottomNavItem("Products", "Productos", Icons.Default.Storefront)
-    object History : BottomNavItem("History", "Historia", Icons.Default.History)
+  //  object History : BottomNavItem("History", "Historia", Icons.Default.History)
     object Cart : BottomNavItem("Cart", "Carrito", Icons.Default.ShoppingCart)
     object Account : BottomNavItem("My Account", "Mi Cuenta", Icons.Default.Person)
 }
