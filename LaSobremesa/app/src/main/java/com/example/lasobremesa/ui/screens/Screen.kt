@@ -1,5 +1,5 @@
 // LaSobremesa
-// diseño de la pantalla, con titulo y menu
+// diseño de la pantalla principal con titulo y menu
 //
 package com.example.lasobremesa.ui.screens
 
@@ -21,8 +21,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.lasobremesa.ui.BottomNavigationBar
-import com.example.lasobremesa.ui.BottomNavItem
+import com.example.lasobremesa.ui.components.BottomNavigationBar
+import com.example.lasobremesa.ui.components.BottomNavItem
 import com.example.lasobremesa.ui.viewmodel.MainViewModel
 
 
@@ -101,9 +101,7 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                     onCheckoutClick = {
                         navController.navigate(BottomNavItem.Home.route)
                     }
-                 //   onNavigateTo = { route -> navController.navigate(route) },
-                 //   onLogout = { navController.navigate(BottomNavItem.Home.route) }
-                )
+                 )
             }
             composable(BottomNavItem.Account.route) {
                 AccountScreen(

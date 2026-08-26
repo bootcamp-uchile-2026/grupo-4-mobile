@@ -1,3 +1,6 @@
+// LaSobremesa
+// la vista de la cuenta del usuario
+//
 package com.example.lasobremesa.ui.viewmodel
 
 import androidx.lifecycle.ViewModel

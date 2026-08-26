@@ -1,3 +1,6 @@
+// LaSobremesa
+// pantalla de historia : no implementada
+//
 package com.example.lasobremesa.ui.screens
 
 import androidx.compose.foundation.layout.Box

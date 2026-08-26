@@ -1,5 +1,9 @@
+// La Sobremesa
+// muestra productos y compras del carrito
+//
 package com.example.lasobremesa.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -30,6 +34,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,21 +61,19 @@ fun CartItemCard(
             modifier = Modifier.padding(12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Imagen del producto (Placeholder temporal)
-            Box(
+            // Imagen del producto
+            Image(
+                painter = painterResource(id = item.imageRes),
+                contentDescription = item.title,
                 modifier = Modifier
                     .size(80.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(Color.LightGray),
-                contentAlignment = Alignment.Center
-            ) {
-                // Icon(Icons.Default.Image, contentDescription = null)
-            }
+                    .clip(RoundedCornerShape(8.dp)),
+                contentScale = ContentScale.Crop
+            )
 
             // Información y Controles
             Column(modifier = Modifier.weight(1.8f)) {
                 Text(text = "${item.title} - ${item.brand}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                Text(text = item.brand, fontSize = 12.sp, color = Color.Gray)
                 Text(text = item.type, fontSize = 12.sp, color = Color.DarkGray, modifier = Modifier.padding(top = 4.dp))
                 Text(text = item.deliveryInfo, fontSize = 12.sp, color = Color.Gray)
 
@@ -116,7 +120,7 @@ fun CartItemCard(
         }
     }
 }
-
+// resumen de compra
 @Composable
 fun CartSummaryCard(
     subtotal: Double,
@@ -163,7 +167,8 @@ fun CartSummaryCard(
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                onClick = onCheckoutClick,
+                //onClick = onCheckoutClick,
+                onClick = {},
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier.fillMaxWidth()

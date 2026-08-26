@@ -1,3 +1,6 @@
+// LaSobremesa
+// la vista del home
+//
 package com.example.lasobremesa.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
@@ -25,7 +28,8 @@ data class HomeUiState(
         Product("5", "Conservas", R.drawable.img_conservas)
     ),
     val gourmetBoxTitle: String = "CAJA GOURMET MENSUAL",
-    val gourmetBoxDescription: String = "Una selección curada de productos artesanales, todos los meses en tu casa."
+    val gourmetBoxDescription: String = "Una selección curada de productos artesanales, todos los meses en tu casa.",
+    val gourmetBoxImageRes: Int = R.drawable.img_caja
 )
 
 class HomeViewModel : ViewModel() {

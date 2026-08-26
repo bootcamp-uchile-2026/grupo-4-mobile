@@ -1,5 +1,5 @@
 // LaSobremesa
-//Archivo: ui/components/UIComponents.kt
+// componentes genericos reutilizables
 //
 package com.example.lasobremesa.ui.components
 

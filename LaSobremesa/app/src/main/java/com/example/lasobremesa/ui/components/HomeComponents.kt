@@ -1,3 +1,6 @@
+// LaSobremesa
+// interfaz de usuario del home
+//
 package com.example.lasobremesa.ui.components
 
 import androidx.compose.foundation.Image
@@ -18,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lasobremesa.ui.viewmodel.Product
 
+// muestra categoria de productos
 @Composable
 fun CategoryCard(product: Product, onClick: () -> Unit) {
     Surface(
@@ -57,6 +61,7 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
     }
 }
 
+// diseña pie de pagina
 @Composable
 fun FooterInfoItem(icon: ImageVector, title: String, subtitle: String) {
     Column(

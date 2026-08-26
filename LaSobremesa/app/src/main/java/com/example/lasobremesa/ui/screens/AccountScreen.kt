@@ -1,6 +1,8 @@
+// LaSobremesa
+// pantalla de cuenta
+//
 package com.example.lasobremesa.ui.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -14,7 +16,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,7 +33,6 @@ fun AccountScreen(
 
     ScreenContainer{
     Spacer(modifier = Modifier.height(16.dp))
-    //Color(0xFFF9F9F9)
     Text(
         text = "Mi Sobremesa", fontSize = 22.sp, fontWeight = FontWeight.Bold
     )
@@ -78,7 +78,7 @@ fun AccountScreen(
         items(accesos) { (titulo, icono, ruta) ->
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onNavigate(ruta) }
+                modifier = Modifier
             ) {
                 Surface(
                     shape = RoundedCornerShape(12.dp),
@@ -101,17 +101,4 @@ fun AccountScreen(
 }
 }
 
-//@Composable
-//fun RowScope.DashboardCard(title: String, subtitle: String, buttonText: String, onClick: () -> Unit) {
-//    Card(modifier = Modifier.weight(1f), colors = CardDefaults.cardColors(containerColor = Color.White)) {
-//        Column(modifier = Modifier.padding(12.dp)) {
-//            Text(title, fontWeight = FontWeight.Bold, fontSize = 13.sp)
-//            Spacer(modifier = Modifier.height(6.dp))
-//            Text(subtitle, fontSize = 11.sp, color = Color.Gray)
-//            Spacer(modifier = Modifier.height(8.dp))
-//            OutlinedButton(onClick = onClick, modifier = Modifier.fillMaxWidth(), contentPadding = PaddingValues(4.dp)) {
-//                Text(buttonText, fontSize = 11.sp)
-//            }
-//        }
-//    }
-// }
+

@@ -1,6 +1,10 @@
+// LaSobremesa
+// la vista del menu del carrito
+//
 package com.example.lasobremesa.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.lasobremesa.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +17,8 @@ data class CartItem(
     val type: String, // Ej: "Refrigerado", "Ambiente"
     val deliveryInfo: String,
     val price: Double,
-    val quantity: Int
+    val quantity: Int,
+    val imageRes: Int
 )
 
 data class CartUiState(
@@ -46,16 +51,18 @@ class CartViewModel : ViewModel() {
                     type = "Refrigerado",
                     deliveryInfo = "Entrega 22-24 ago",
                     price = 12990.0,
-                    quantity = 1
+                    quantity = 1,
+                    imageRes = R.drawable.img_queso_maduro
                 ),
                 CartItem(
                     id = "2",
                     title = "Mermelada de Frambuesa",
-                    brand = "La Emilia",
+                    brand = "Gustoso Gourmet",
                     type = "Ambiente",
                     deliveryInfo = "Entrega 21-23 ago",
                     price = 6990.0,
-                    quantity = 2
+                    quantity = 2,
+                    imageRes = R.drawable.img_merm_frambuesa
                 )
             )
         )

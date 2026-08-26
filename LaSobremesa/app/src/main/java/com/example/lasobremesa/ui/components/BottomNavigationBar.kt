@@ -1,10 +1,10 @@
 // LaSobremesa
 // barra de navegacion de bottombar
 //
-package com.example.lasobremesa.ui
+package com.example.lasobremesa.ui.components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.History
+// import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -14,6 +14,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
@@ -54,7 +55,7 @@ fun BottomNavigationBar(
 sealed class BottomNavItem(
     val route: String,
     val title: String,
-    val icon: androidx.compose.ui.graphics.vector.ImageVector
+    val icon: ImageVector
 ) {
     object Home : BottomNavItem("home", "Inicio", Icons.Default.Home)
     object Products : BottomNavItem("Products", "Productos", Icons.Default.Storefront)

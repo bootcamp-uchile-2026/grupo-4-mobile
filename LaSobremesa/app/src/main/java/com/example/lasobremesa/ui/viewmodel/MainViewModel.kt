@@ -4,7 +4,7 @@
 package com.example.lasobremesa.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.lasobremesa.ui.BottomNavItem
+import com.example.lasobremesa.ui.components.BottomNavItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

@@ -1,7 +1,9 @@
+// LaSobremesa
+// pantalla home
+//
 package com.example.lasobremesa.ui.screens
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -9,17 +11,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocalShipping
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,6 +31,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lasobremesa.ui.components.CategoryCard
 import com.example.lasobremesa.ui.components.FooterInfoItem
 import com.example.lasobremesa.ui.viewmodel.HomeViewModel
+import com.example.lasobremesa.R
+import androidx.compose.foundation.Image
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,7 +90,8 @@ fun HomeScreen(
                 }
 
                 OutlinedButton(
-                    onClick = { onNavigateTo("box") },
+                  //  onClick = { onNavigateTo("box") },
+                    onClick = {},
                     modifier = Modifier.weight(1f).height(46.dp),
                     border = BorderStroke(1.dp, Color.Black),
                     shape = RoundedCornerShape(8.dp),
@@ -151,7 +157,8 @@ fun HomeScreen(
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         Button(
-                            onClick = { onNavigateTo("subscription") },
+                            //onClick = { onNavigateTo("subscription") },
+                            onClick = {},
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E1E1E)),
                             shape = RoundedCornerShape(6.dp),
                             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
@@ -161,22 +168,15 @@ fun HomeScreen(
                     }
 
                     Spacer(modifier = Modifier.width(8.dp))
-
-                    Box(
+                    Image(
+                        painter = painterResource(id = R.drawable.img_caja),
+                        contentDescription = "Caja Gourmet",
                         modifier = Modifier
-                            .weight(0.9f)
-                            .height(100.dp)
-                            .background(Color.LightGray.copy(alpha = 0.3f), RoundedCornerShape(8.dp)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.CheckCircle,
-                            contentDescription = "Caja",
-                            tint = Color.DarkGray,
-                            modifier = Modifier.size(48.dp)
-                        )
-                    }
-                }
+                            .size(100.dp)
+                            .clip(RoundedCornerShape(12.dp)),
+                        contentScale = ContentScale.Crop
+                    )
+                 }
             }
 
             Spacer(modifier = Modifier.height(32.dp))
