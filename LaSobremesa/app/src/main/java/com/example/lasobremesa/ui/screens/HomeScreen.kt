@@ -17,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -44,7 +43,7 @@ fun HomeScreen(
     val scrollState = rememberScrollState()
 
     Scaffold(
-        containerColor = Color(0xFFFDFBF7)
+        containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -78,7 +77,7 @@ fun HomeScreen(
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.onSurface,
                 lineHeight = 32.sp
             )
             Spacer(modifier = Modifier.height(12.dp))
@@ -86,7 +85,7 @@ fun HomeScreen(
                 text = state.mainDescription,
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
-                color = Color.DarkGray,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
 
@@ -96,7 +95,6 @@ fun HomeScreen(
                 Button(
                     onClick = { onNavigateTo("products") },
                     modifier = Modifier.fillMaxWidth().height(46.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E1E1E)),
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     Text("VER PRODUCTOS", fontSize = 11.sp, fontWeight = FontWeight.Bold)
@@ -126,9 +124,7 @@ fun HomeScreen(
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
-                //}
 
-            //Spacer(modifier = Modifier.height(32.dp))
             Text(text = "Productos destacados",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
@@ -146,7 +142,6 @@ fun HomeScreen(
             // Sección Caja Gourmet Mensual
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFF4F1EA)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Row(
@@ -157,21 +152,17 @@ fun HomeScreen(
                         Text(
                             text = state.gourmetBoxTitle,
                             fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.Black
+                            fontWeight = FontWeight.Bold
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Text(
                             text = state.gourmetBoxDescription,
                             fontSize = 12.sp,
-                            color = Color.DarkGray,
                             lineHeight = 16.sp
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         Button(
-                            //onClick = { onNavigateTo("subscription") },
                             onClick = {},
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E1E1E)),
                             shape = RoundedCornerShape(6.dp),
                             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
                         ) {

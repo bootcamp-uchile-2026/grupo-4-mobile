@@ -1,6 +1,5 @@
 package com.example.lasobremesa.ui.theme
 
-
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -14,16 +13,20 @@ import androidx.compose.ui.platform.LocalContext
 import com.lasobremesa.ui.theme.LaSobremesaThemeColors
 
 private val DarkColorScheme = darkColorScheme(
-        // En modo oscuro, el color principal suele ser una versión un poco más clara o brillante para que resalte
-        primary = LaSobremesaThemeColors.Action.Accent, // O tu color primario adaptado a oscuro
-        onPrimary = LaSobremesaThemeColors.Text.Primary,
+        // En modo oscuro
+        // botones principales
+        primary = LaSobremesaThemeColors.Action.Accent,
+        onPrimary = LaSobremesaThemeColors.Text.OnBrand,
         secondary = LaSobremesaThemeColors.Action.Primary,
-        onSecondary = LaSobremesaThemeColors.Text.Primary,
-        // Fondos oscuros (puedes tirar de los tonos más altos de tus grises/beiges o un negro suave)
-        background = Color(0xFF121212),
-        onBackground = Color(0xFFE0E0E0), // Texto claro para leer sobre fondo oscuro
-        surface = Color(0xFF1E1E1E),     // Superficies de tarjetas oscuras
-        onSurface = Color(0xFFE0E0E0),
+        onSecondary = LaSobremesaThemeColors.Text.OnBrand,
+        // fondo general de la app
+        background = LaSobremesaThemeColors.Background.DarkBase,
+        onBackground = LaSobremesaThemeColors.Text.OnBrand,
+        // superficies tarjetas (card, contenedores, barras inferiores)
+        surface = LaSobremesaThemeColors.Background.DarkBase,
+        onSurface = LaSobremesaThemeColors.Text.OnBrand,
+        // textos secundarios, subtitulos y borde
+        onSurfaceVariant = LaSobremesaThemeColors.Text.Disabled,
         outline = LaSobremesaThemeColors.Border.Strong
     )
 
@@ -38,6 +41,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = LaSobremesaThemeColors.Text.Primary,
     outline = LaSobremesaThemeColors.Border.Default
 )
+
 @Composable
 fun LaSobremesaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -59,9 +63,4 @@ fun LaSobremesaTheme(
         content = content
     )
 }
-
-
-
-
-
 

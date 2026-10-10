@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -82,19 +81,21 @@ fun AccountScreen(
             ) {
                 Surface(
                     shape = RoundedCornerShape(12.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.primaryContainer,
                     modifier = Modifier.size(50.dp)
                 ) {
                     Box(contentAlignment = Alignment.Center) {
                         Icon(
                             icono,
                             titulo,
-                            tint = Color.DarkGray
+                            tint = MaterialTheme.colorScheme.onPrimaryContainer
                         )
                     }
                 }
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(titulo, fontSize = 11.sp, color = Color.DarkGray, maxLines = 1)
+                Text(titulo, fontSize = 11.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1)
             }
         }
     }

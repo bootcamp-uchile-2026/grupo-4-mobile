@@ -25,13 +25,13 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -39,8 +39,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lasobremesa.data.CartItem
 
-class CartComponents {
-}
 
 @Composable
 fun CartItemCard(
@@ -50,7 +48,8 @@ fun CartItemCard(
     onDelete: () -> Unit
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         shape = RoundedCornerShape(12.dp),
         modifier = Modifier.fillMaxWidth()
@@ -72,13 +71,13 @@ fun CartItemCard(
             // Información y Controles
             Column(modifier = Modifier.weight(1.8f)) {
                 Text(text = "${item.title} - ${item.brand}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                Text(text = item.type, fontSize = 12.sp, color = Color.DarkGray, modifier = Modifier.padding(top = 4.dp))
-                Text(text = item.deliveryInfo, fontSize = 12.sp, color = Color.Gray)
+                Text(text = item.type, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.padding(top = 4.dp))
+                Text(text = item.deliveryInfo, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
                 Spacer(modifier = Modifier.height(8.dp))
 
                 TextButton(onClick = onDelete, contentPadding = PaddingValues(0.dp)) {
-                    Text(text = "Eliminar", fontSize = 12.sp, color = Color.Gray)
+                    Text(text = "Eliminar", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
 
@@ -98,7 +97,7 @@ fun CartItemCard(
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .border(1.dp, Color.LightGray, RoundedCornerShape(4.dp))
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
                         .padding(horizontal = 4.dp, vertical = 2.dp)
                 ) {
                     IconButton(onClick = onDecrease, modifier = Modifier.size(24.dp)) {
@@ -125,7 +124,7 @@ fun CartSummaryCard(
     onCheckoutClick: () -> Unit
 ) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+       colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface ),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         shape = RoundedCornerShape(12.dp),
         modifier = Modifier.fillMaxWidth()
@@ -138,7 +137,7 @@ fun CartSummaryCard(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = "Productos", color = Color.Gray)
+                Text(text = "Productos", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Text(text = "$${String.format("%,.0f", subtotal)}", fontWeight = FontWeight.Medium)
             }
 
@@ -148,8 +147,8 @@ fun CartSummaryCard(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = "Despacho", color = Color.Gray)
-                Text(text = "Se calcula en el checkout", fontSize = 12.sp, color = Color.Gray)
+                Text(text = "Despacho", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = "Se calcula en el checkout", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
 
             Divider(modifier = Modifier.padding(vertical = 12.dp))
@@ -165,13 +164,12 @@ fun CartSummaryCard(
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                //onClick = onCheckoutClick,
                 onClick = {},
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "IR AL CHECKOUT", color = Color.White, fontWeight = FontWeight.Bold)
+                Text(text = "IR AL CHECKOUT", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -185,10 +183,10 @@ fun CartSummaryCard(
                     imageVector = Icons.Default.Lock,
                     contentDescription = null,
                     modifier = Modifier.size(14.dp),
-                    tint = Color.Gray
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = "Compra 100% segura", fontSize = 12.sp, color = Color.Gray)
+                Text(text = "Compra 100% segura", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
     }

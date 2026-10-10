@@ -1,3 +1,6 @@
+// LaSobremesa
+// Define estructura deñ carrito
+//
 package com.example.lasobremesa.data
 
 data class CartItem(

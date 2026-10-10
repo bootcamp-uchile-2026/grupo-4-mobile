@@ -29,7 +29,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -94,7 +93,7 @@ fun ProductDetailScreen(
                 Text(
                     text = "${producer?.name?.uppercase() ?: ""} • ${producer?.ubicacion ?: ""}",
                     style = MaterialTheme.typography.labelMedium,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 // 3. Nombre del Producto
@@ -108,15 +107,15 @@ fun ProductDetailScreen(
                 Text(
                     text = "$${product.price}",
                     style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.primary,
+                    //color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
 
-                /*Text(
+                Text(
                     text = "Refrigerado • Entrega 2 - 3 días",
                     style = MaterialTheme.typography.bodySmall,
-                    color = Color.DarkGray
-                )*/
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
 
                 HorizontalDivider()
 
@@ -130,7 +129,7 @@ fun ProductDetailScreen(
                     // Control de cantidad
                     Row(verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
-                            .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(8.dp))
                             .padding(horizontal = 4.dp, vertical = 2.dp)
                     ){
                         IconButton(onClick = { viewModel.updateQuantity(currentQuantity - 1) }) {
@@ -155,7 +154,7 @@ fun ProductDetailScreen(
                     }
                 }
 
-                Divider()
+                HorizontalDivider()
 
                 // 6. Descripción del producto
                 Text(
@@ -166,7 +165,7 @@ fun ProductDetailScreen(
                Text(
                     text = product.description ?: "",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }

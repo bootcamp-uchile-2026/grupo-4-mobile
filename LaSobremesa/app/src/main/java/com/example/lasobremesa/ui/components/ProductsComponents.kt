@@ -120,7 +120,7 @@ fun ProductCard(product: Product, onClick:(String) -> Unit) {
              Text(
                  text = product.name,
                  style = MaterialTheme.typography.bodySmall,
-                 color = Color.Gray
+                 color = MaterialTheme.colorScheme.onSurfaceVariant
              )
              Text(text = "${product.price}", style = MaterialTheme.typography.titleMedium)
          }

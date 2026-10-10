@@ -34,6 +34,7 @@ fun BottomNavigationBar(
     val currentRoute = navBackStackEntry.value?.destination?.route
 
     NavigationBar {
+
         items.forEach { item ->
             NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = item.title) },
@@ -64,7 +65,6 @@ sealed class BottomNavItem(
 ) {
     object Home : BottomNavItem("home", "Inicio", Icons.Default.Home)
     object Products : BottomNavItem("Products", "Productos", Icons.Default.Storefront)
-    //object Search : BottomNavItem("search", "Busqueda", Icons.Default.Search)
     object Account : BottomNavItem("My Account", "Mi Cuenta", Icons.Default.Person)
     object MoreMenu : BottomNavItem("more", "Más", Icons.Default.MoreHoriz)
 }

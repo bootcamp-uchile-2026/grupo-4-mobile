@@ -61,7 +61,7 @@ fun CartScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            val total = cartItems.sumOf { it.price * it.quantity }
+            val total = cartItems.sumOf { it.price * it.quantity }.toInt()
 
             Card(
                 modifier = Modifier.fillMaxWidth()

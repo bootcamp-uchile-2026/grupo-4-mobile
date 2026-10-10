@@ -28,7 +28,7 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
         onClick = onClick,
         modifier = Modifier.width(95.dp),
         shape = RoundedCornerShape(12.dp),
-        color = Color.White,
+        color = MaterialTheme.colorScheme.surface,
         shadowElevation = 1.dp
     ) {
         Column(
@@ -53,7 +53,7 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
                 text = product.name,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Medium,
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 maxLines = 1
             )
@@ -71,7 +71,7 @@ fun FooterInfoItem(icon: ImageVector, title: String, subtitle: String) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = Color.DarkGray,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.size(22.dp)
         )
         Spacer(modifier = Modifier.height(4.dp))
@@ -80,13 +80,13 @@ fun FooterInfoItem(icon: ImageVector, title: String, subtitle: String) {
             fontSize = 10.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
-            color = Color.DarkGray
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
             text = subtitle,
             fontSize = 9.sp,
             textAlign = TextAlign.Center,
-            color = Color.Gray,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             lineHeight = 11.sp
         )
     }

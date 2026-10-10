@@ -1,8 +1,6 @@
 package com.example.lasobremesa.data
 
 import com.example.lasobremesa.R
-
-
 class ProductRepository {
     private val products = listOf(
         Product(
