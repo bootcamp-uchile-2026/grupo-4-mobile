@@ -12,7 +12,7 @@ data class CartUiState(
     val items: List<CartItem> = emptyList(),
     val isLoading: Boolean = false
 ) {
-    val subtotal: Double
+    val subtotal: Int
         get() = items.sumOf { it.price * it.quantity }
     val totalItemsCount: Int
         get() = items.sumOf { it.quantity }
@@ -28,7 +28,7 @@ class CartViewModel : ViewModel() {
         CartRepository.removeItem(itemId)
     }
 
-    fun getTotalPrice(): Double {
+    fun getTotalPrice(): Int {
         return cartItems.value.sumOf { it.price * it.quantity }
     }
 }

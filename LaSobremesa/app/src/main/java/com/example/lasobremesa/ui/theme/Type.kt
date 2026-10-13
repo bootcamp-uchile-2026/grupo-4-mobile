@@ -21,10 +21,10 @@ val PoppinsFamily = FontFamily(
     Font(R.font.poppins_black, FontWeight.Black)        // 900
 )
 
-// 2. Definición de la Tipografía de Material Design usando los valores exactos de tu Figma
+// 2. Definición de la Tipografía de Material Design usando los valores exactos de Figma
 val Typography = Typography(
 
-    // --- TITLES ---
+    // --- TITLES ---titulos
     displayLarge = TextStyle(
         fontFamily = PoppinsFamily,
         fontWeight = FontWeight.Bold,
@@ -47,7 +47,7 @@ val Typography = Typography(
         letterSpacing = (-0.6).sp
     ),
 
-    // --- HEADINGS ---
+    // --- HEADINGS --- encabezado
     headlineLarge = TextStyle(
         fontFamily = PoppinsFamily,
         fontWeight = FontWeight.SemiBold,
@@ -91,7 +91,7 @@ val Typography = Typography(
         letterSpacing = 0.sp
     ),
 
-    // --- BODY ---
+    // --- BODY ---parrafo
     bodyLarge = TextStyle(
         fontFamily = PoppinsFamily,
         fontWeight = FontWeight.Normal,
@@ -114,7 +114,7 @@ val Typography = Typography(
         letterSpacing = 0.sp
     ),
 
-    // --- LABELS ---
+    // --- LABELS ---etiquetas
     labelLarge = TextStyle(
         fontFamily = PoppinsFamily,
         fontWeight = FontWeight.Medium,

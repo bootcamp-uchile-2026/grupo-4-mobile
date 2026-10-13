@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.lasobremesa.data.ProducerRepository
 import com.example.lasobremesa.ui.viewmodel.ProductsViewModel
 import com.example.lasobremesa.ui.components.ProductCard
 
@@ -56,7 +57,7 @@ fun CatalogScreen(
                     FilterChip(
                         selected = isSelected,
                         onClick = { viewModel.onCategoryToggled(categoria) },
-                        label = { Text(categoria) }
+                        label = { Text(categoria,style = MaterialTheme.typography.labelLarge ) }
                     )
                 }
             }
@@ -75,6 +76,7 @@ fun CatalogScreen(
                 items(state.products) { product ->
                     ProductCard(
                         product = product,
+                        producerName = ProducerRepository().getProducerNameById(product.producerId),
                        onClick = { productId ->
                            if (!productId.isNullOrEmpty()) {
                                navController.navigate("ProductDetailScreen/$productId")

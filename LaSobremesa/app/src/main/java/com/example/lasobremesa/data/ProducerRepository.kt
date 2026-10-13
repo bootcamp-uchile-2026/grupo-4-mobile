@@ -1,10 +1,13 @@
+//LaSobremesa
+//provee informaciom de los productores
+//
 package com.example.lasobremesa.data
 
 class ProducerRepository {
     private val producers = listOf(
         Producer(
             id = "prod_1",
-            name = "Vino Organico",
+            name = "Vinateria del Valle",
             ubicacion = "Casablanca",
             bio = "Productor artesanal de vinos organicos."
         ),
@@ -25,4 +28,9 @@ class ProducerRepository {
     fun getProducerById(id: String): Producer? {
         return producers.find { it.id == id }
     }
+    fun getProducerNameById(id: String): String {
+        val producer = getProducerById(id)
+        return producer?.name ?: "Productor desconocido"
+    }
+
 }

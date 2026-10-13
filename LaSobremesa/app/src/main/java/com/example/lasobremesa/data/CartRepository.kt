@@ -1,3 +1,6 @@
+//LaSobremesa
+// gestiona estado del carritp de compras
+//
 package com.example.lasobremesa.data
 
 import kotlinx.coroutines.flow.MutableStateFlow

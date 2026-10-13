@@ -32,9 +32,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -62,6 +62,7 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
         "Products" -> "Productos"
         "search" -> "Busqueda"
         "My Account" -> "Mi Cuenta"
+        "cart" -> "Carrito"
         "more" -> "Mas"
         else -> "LA SOBREMESA"
     }
@@ -74,7 +75,7 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                         text = currentTitle,
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Left,
-                        fontSize = 16.sp
+                        style = MaterialTheme.typography.titleSmall
                     )
                 },
                 navigationIcon = {
@@ -143,10 +144,9 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                     DropdownMenuItem(
                         text = {
                             Column {
-                                Text("Suscripcion")
-                                Text(
-                                    text = "Cajas mensuales con lo mejor de cada temporada",
-                                    fontSize = 10.sp
+                                Text("Suscripcion",fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyLarge )
+                                Text("Cajas mensuales con lo mejor de cada temporada",
+                                     style = MaterialTheme.typography.labelSmall
                                 )
                             }
                         },
@@ -158,12 +158,12 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                     DropdownMenuItem(
                         text = {
                             Column {
-                                Text("Historia de productores")
-                                Text(
-                                    text = "Conoce a quienes hay detrás de cada producto",
-                                    fontSize = 10.sp
+                                Text("Historia de productores",fontWeight = FontWeight.Bold,style = MaterialTheme.typography.bodyLarge)
+                                Text("Conoce a quienes hay detrás de cada producto",
+                                        style = MaterialTheme.typography.labelSmall
                                 )
-                            } },
+                            }
+                               },
                         onClick = {
                             expandedMenu = false
                             navController.navigate("historia_route") // Reemplaza con tu ruta real
@@ -172,10 +172,9 @@ fun MainScreen(mainViewModel: MainViewModel = viewModel()) {
                     DropdownMenuItem(
                         text = {
                             Column {
-                                Text("Favoritos")
-                                Text (
-                                    text = "Tus productos guardados",
-                                    fontSize = 10.sp
+                                Text("Favoritos",fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyLarge)
+                                Text ("Tus productos guardados",
+                                    style = MaterialTheme.typography.labelSmall
                                 )
                             } },
                         onClick = {

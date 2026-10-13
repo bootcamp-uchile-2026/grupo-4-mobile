@@ -7,6 +7,7 @@ import androidx.compose.runtime.State
 import androidx.lifecycle.viewModelScope
 import com.example.lasobremesa.data.CartItem
 import com.example.lasobremesa.data.CartRepository
+import com.example.lasobremesa.data.ProducerRepository
 import com.example.lasobremesa.data.Product
 import com.example.lasobremesa.data.ProductRepository
 import kotlinx.coroutines.launch
@@ -36,10 +37,10 @@ class ProductDetailViewModel (
             val cartItem = CartItem(
                 id = product.id,
                 title = product.name,
-                brand = product.producerId,
+                brand = ProducerRepository().getProducerNameById(product.producerId),
                 type = product.category,
                 deliveryInfo = product.description,
-                price = product.price.toDouble(),
+                price = product.price.toInt(),
                 quantity = selectedQuantity,
                 imageRes = product.imageRes
             )

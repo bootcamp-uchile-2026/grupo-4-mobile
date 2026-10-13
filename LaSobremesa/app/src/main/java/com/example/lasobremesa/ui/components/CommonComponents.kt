@@ -6,13 +6,12 @@ package com.example.lasobremesa.ui.components
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun ScreenContainer(
@@ -47,24 +46,21 @@ fun DashboardCard(
         ) {
             Text(
                 text = title,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold
+                style = MaterialTheme.typography.titleSmall
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = content,
-                fontSize = 12.sp,
-               // color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+                style = MaterialTheme.typography.bodyMedium,
+                text = content
+                           )
             Spacer(modifier = Modifier.height(12.dp))
             TextButton(
                 onClick = onClick,
                 contentPadding = PaddingValues(0.dp)
             ) {
                 Text(
-                    text = buttonText,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.labelMedium,
+                    text = buttonText
                 )
             }
         }

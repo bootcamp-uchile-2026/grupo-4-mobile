@@ -15,10 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.lasobremesa.ui.viewmodel.Product
 
 // muestra categoria de productos
@@ -27,7 +25,6 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
     Surface(
         onClick = onClick,
         modifier = Modifier.width(95.dp),
-        shape = RoundedCornerShape(12.dp),
         color = MaterialTheme.colorScheme.surface,
         shadowElevation = 1.dp
     ) {
@@ -51,8 +48,7 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = product.name,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Medium,
+                style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 maxLines = 1
@@ -61,7 +57,7 @@ fun CategoryCard(product: Product, onClick: () -> Unit) {
     }
 }
 
-// diseña pie de pagina
+// diseña pie de pagina: iconos acceso rapido de home
 @Composable
 fun FooterInfoItem(icon: ImageVector, title: String, subtitle: String) {
     Column(
@@ -77,17 +73,15 @@ fun FooterInfoItem(icon: ImageVector, title: String, subtitle: String) {
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = title,
-            fontSize = 10.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.bodySmall,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
             text = subtitle,
-            fontSize = 9.sp,
+            style = MaterialTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            lineHeight = 11.sp
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }

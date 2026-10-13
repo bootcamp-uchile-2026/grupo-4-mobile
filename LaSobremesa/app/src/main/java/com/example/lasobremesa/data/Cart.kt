@@ -9,7 +9,7 @@ data class CartItem(
     val brand: String,
     val type: String, // Ej: "Refrigerado", "Ambiente"
     val deliveryInfo: String,
-    val price: Double,
+    val price: Int,
     val quantity: Int,
     val imageRes: Int
 )

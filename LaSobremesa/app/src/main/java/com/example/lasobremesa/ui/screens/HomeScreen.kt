@@ -19,10 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lasobremesa.ui.components.CategoryCard
 import com.example.lasobremesa.ui.components.FooterInfoItem
@@ -73,17 +71,15 @@ fun HomeScreen(
             // Cabecera Principal
             Spacer(modifier = Modifier.height(8.dp))
             Text(
+                style = MaterialTheme.typography.titleLarge,
                 text = state.mainTitle,
-                fontSize = 26.sp,
-                fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface,
-                lineHeight = 32.sp
+                color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.height(12.dp))
             Text(
+                style = MaterialTheme.typography.bodyMedium,
                 text = state.mainDescription,
-                fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = 16.dp)
@@ -94,10 +90,10 @@ fun HomeScreen(
                // boton ver productos
                 Button(
                     onClick = { onNavigateTo("products") },
-                    modifier = Modifier.fillMaxWidth().height(46.dp),
-                    shape = RoundedCornerShape(8.dp)
+                    modifier = Modifier.fillMaxWidth().height(46.dp)
                 ) {
-                    Text("VER PRODUCTOS", fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                    Text("VER PRODUCTOS", style = MaterialTheme.typography.labelSmall
+                        )
                 }
                 Spacer(modifier = Modifier.height(32.dp))
             // imagen de productos
@@ -127,22 +123,19 @@ fun HomeScreen(
 
             Text(text = "Productos destacados",
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
                 modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
             )
             Spacer(modifier = Modifier.height(22.dp))
 
             Text(text = "Productores destacados",
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
                 modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
             )
             Spacer(modifier = Modifier.height(22.dp))
 
             // Sección Caja Gourmet Mensual
             Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth().padding(16.dp),
@@ -151,22 +144,19 @@ fun HomeScreen(
                     Column(modifier = Modifier.weight(1.2f)) {
                         Text(
                             text = state.gourmetBoxTitle,
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold
+                            style = MaterialTheme.typography.titleSmall
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Text(
                             text = state.gourmetBoxDescription,
-                            fontSize = 12.sp,
-                            lineHeight = 16.sp
+                            style = MaterialTheme.typography.bodyLarge
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         Button(
                             onClick = {},
-                            shape = RoundedCornerShape(6.dp),
                             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
                         ) {
-                            Text("CONOCER SUSCRIPCIÓN", fontSize = 10.sp)
+                            Text("CONOCER SUSCRIPCIÓN",style = MaterialTheme.typography.labelSmall )
                         }
                     }
 

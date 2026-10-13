@@ -51,7 +51,6 @@ fun CartItemCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        shape = RoundedCornerShape(12.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
         Row(
@@ -70,14 +69,14 @@ fun CartItemCard(
 
             // Información y Controles
             Column(modifier = Modifier.weight(1.8f)) {
-                Text(text = "${item.title} - ${item.brand}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                Text(text = item.type, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.padding(top = 4.dp))
-                Text(text = item.deliveryInfo, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = "${item.title} - ${item.brand}", fontWeight = FontWeight.SemiBold,style = MaterialTheme.typography.bodySmall )
+                Text(text = item.type,style = MaterialTheme.typography.bodySmall , color = MaterialTheme.colorScheme.onSurface, modifier = Modifier.padding(top = 4.dp))
+                Text(text = item.deliveryInfo, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
                 Spacer(modifier = Modifier.height(8.dp))
 
                 TextButton(onClick = onDelete, contentPadding = PaddingValues(0.dp)) {
-                    Text(text = "Eliminar", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(text = "Eliminar",style = MaterialTheme.typography.labelSmall , color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
 
@@ -88,8 +87,7 @@ fun CartItemCard(
             ) {
                 Text(
                     text = "$${String.format("%,.0f", item.price * item.quantity)}",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp
+                    style = MaterialTheme.typography.labelMedium
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -101,16 +99,15 @@ fun CartItemCard(
                         .padding(horizontal = 4.dp, vertical = 2.dp)
                 ) {
                     IconButton(onClick = onDecrease, modifier = Modifier.size(24.dp)) {
-                        Text(text = "-", fontWeight = FontWeight.Bold)
+                        Text(text = "-", style = MaterialTheme.typography.labelMedium)
                     }
                     Text(
                         text = item.quantity.toString(),
                         modifier = Modifier.padding(horizontal = 8.dp),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Medium
+                        style = MaterialTheme.typography.labelLarge
                     )
                     IconButton(onClick = onIncrease, modifier = Modifier.size(24.dp)) {
-                        Text(text = "+", fontWeight = FontWeight.Bold)
+                        Text(text = "+", style = MaterialTheme.typography.labelMedium)
                     }
                 }
             }
@@ -126,7 +123,6 @@ fun CartSummaryCard(
     Card(
        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface ),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        shape = RoundedCornerShape(12.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -166,7 +162,6 @@ fun CartSummaryCard(
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
-                shape = RoundedCornerShape(8.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "IR AL CHECKOUT", color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.Bold)

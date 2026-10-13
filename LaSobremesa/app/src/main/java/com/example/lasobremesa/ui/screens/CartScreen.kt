@@ -33,7 +33,7 @@ fun CartScreen(
     ) {
         Text(
             text = "Carrito de Compras",
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
@@ -42,7 +42,7 @@ fun CartScreen(
                 modifier = Modifier.weight(1f).fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Tu carrito está vacío")
+                Text("Tu carrito está vacío", style = MaterialTheme.typography.bodyLarge)
             }
         } else {
             LazyColumn(

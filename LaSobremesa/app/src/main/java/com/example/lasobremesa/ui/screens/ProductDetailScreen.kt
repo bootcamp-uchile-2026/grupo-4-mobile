@@ -16,7 +16,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -31,7 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -67,7 +65,7 @@ fun ProductDetailScreen(
                 modifier = Modifier.fillMaxSize().padding(padding),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "Producto no encontrado")
+                Text("Producto no encontrado", style = MaterialTheme.typography.labelSmall)
             }
         } else {
             Column(
@@ -99,16 +97,13 @@ fun ProductDetailScreen(
                 // 3. Nombre del Producto
                 Text(
                     text = product.name,
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.headlineSmall
                 )
 
                 // 4. Precio
                 Text(
                     text = "$${product.price}",
-                    style = MaterialTheme.typography.titleLarge,
-                    //color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.titleLarge
                 )
 
                 Text(
@@ -150,7 +145,7 @@ fun ProductDetailScreen(
                             navController.navigate("cart") },
                         modifier = Modifier.weight(1f)
                     ) {
-                        Text(text = "Agregar al carrito")
+                        Text("Agregar al carrito", style = MaterialTheme.typography.labelMedium)
                     }
                 }
 
@@ -159,8 +154,7 @@ fun ProductDetailScreen(
                 // 6. Descripción del producto
                 Text(
                     text = "Descripción",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.titleMedium
                 )
                Text(
                     text = product.description ?: "",

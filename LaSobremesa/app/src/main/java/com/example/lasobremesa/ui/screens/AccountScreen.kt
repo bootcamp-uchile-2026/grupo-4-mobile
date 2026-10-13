@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -15,9 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.lasobremesa.ui.components.DashboardCard
 import com.example.lasobremesa.ui.components.ScreenContainer
@@ -33,7 +30,7 @@ fun AccountScreen(
     ScreenContainer{
     Spacer(modifier = Modifier.height(16.dp))
     Text(
-        text = "Mi Sobremesa", fontSize = 22.sp, fontWeight = FontWeight.Bold
+        text = "Mi Sobremesa", style = MaterialTheme.typography.titleLarge
     )
     Spacer(modifier = Modifier.height(16.dp))
 
@@ -55,7 +52,7 @@ fun AccountScreen(
     }
 
     Spacer(modifier = Modifier.height(12.dp))
-    Text("Accesos rápidos", fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+    Text("Accesos rápidos", style = MaterialTheme.typography.titleMedium)
     Spacer(modifier = Modifier.height(8.dp))
 
     // Grid de Accesos Rápidos simplificado
@@ -80,7 +77,6 @@ fun AccountScreen(
                 modifier = Modifier
             ) {
                 Surface(
-                    shape = RoundedCornerShape(12.dp),
                     color = MaterialTheme.colorScheme.primaryContainer,
                     modifier = Modifier.size(50.dp)
                 ) {
@@ -93,7 +89,7 @@ fun AccountScreen(
                     }
                 }
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(titulo, fontSize = 11.sp,
+                Text(titulo, style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1)
             }
