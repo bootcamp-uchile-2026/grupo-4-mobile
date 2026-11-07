@@ -1,0 +1,178 @@
+// LaSobremesa
+// pantalla home
+//
+package com.example.lasobremesa.ui.screens
+
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LocalShipping
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.lasobremesa.ui.components.CategoryCard
+import com.example.lasobremesa.ui.components.FooterInfoItem
+import com.example.lasobremesa.ui.viewmodel.HomeViewModel
+import com.example.lasobremesa.R
+import androidx.compose.foundation.Image
+import androidx.compose.material.icons.filled.Eco
+import androidx.compose.material.icons.filled.Storefront
+import androidx.compose.material.icons.filled.Verified
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(),
+    onNavigateTo: (String) -> Unit = {}
+) {
+    val state by viewModel.uiState.collectAsState()
+    val scrollState = rememberScrollState()
+
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.background
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = innerPadding.calculateBottomPadding())
+                .verticalScroll(scrollState)
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // Sección Categorías (5 productos)
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                state.categories.forEach { category ->
+                    CategoryCard(
+                        product = category,
+                        onClick = { viewModel.onCategoryClick(category) }
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(36.dp))
+
+            // Cabecera Principal
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                style = MaterialTheme.typography.titleLarge,
+                text = state.mainTitle,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                style = MaterialTheme.typography.bodyMedium,
+                text = state.mainDescription,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+               // boton ver productos
+                Button(
+                    onClick = { onNavigateTo("products") },
+                    modifier = Modifier.fillMaxWidth().height(46.dp)
+                ) {
+                    Text("VER PRODUCTOS", style = MaterialTheme.typography.labelSmall
+                        )
+                }
+                Spacer(modifier = Modifier.height(32.dp))
+            // imagen de productos
+            Image(
+                painter = painterResource(id = R.drawable.prods),
+                contentDescription = "Imagen de productos destacados",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                    contentScale = ContentScale.Crop
+            )
+            Spacer(modifier = Modifier.height(32.dp))
+
+            // iconos inferiores
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+                    FooterInfoItem(icon = Icons.Filled.Storefront, title = "Productores locales", subtitle = "")
+                    FooterInfoItem(icon = Icons.Filled.LocalShipping, title = "Envio cuidadoso", subtitle = "")
+                    FooterInfoItem(icon = Icons.Filled.Eco, title = "Ingredientes reales", subtitle = "")
+                    FooterInfoItem(icon = Icons.Filled.Verified, title = "Pago seguro", subtitle = "")
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+            Text(text = "Productos destacados",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+            )
+            Spacer(modifier = Modifier.height(22.dp))
+
+            Text(text = "Productores destacados",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+            )
+            Spacer(modifier = Modifier.height(22.dp))
+
+            // Sección Caja Gourmet Mensual
+            Card(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1.2f)) {
+                        Text(
+                            text = state.gourmetBoxTitle,
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(
+                            text = state.gourmetBoxDescription,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Button(
+                            onClick = {},
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                        ) {
+                            Text("CONOCER SUSCRIPCIÓN",style = MaterialTheme.typography.labelSmall )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Image(
+                        painter = painterResource(id = R.drawable.img_caja),
+                        contentDescription = "Caja Gourmet",
+                        modifier = Modifier
+                            .size(100.dp)
+                            .clip(RoundedCornerShape(12.dp)),
+                        contentScale = ContentScale.Crop
+                    )
+                 }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+        }
+    }
+}
